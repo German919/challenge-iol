@@ -1,0 +1,21 @@
+.gridCharacter{
+    width:95%;
+    margin: 2rem 0;
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(230px, 1fr));
+    gap: 1rem
+  }
+
+  .flexCharacter{
+    margin: 2rem 0;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    gap: 1rem
+  }
+  
+  .nav{
+    display: flex;
+    justify-content: center; 
+    margin:1rem 0
+  }
