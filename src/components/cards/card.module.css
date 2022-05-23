@@ -7,7 +7,8 @@
     border-bottom: 3px solid #CBD4D9;
     border-bottom-right-radius: .3rem;
     border-top-right-radius: .3rem;
-    background-color: #D2DDE5;
+    background-color: #D2DDE5; 
+    /* background-color:#1B4F72; */
     box-shadow: 0 0 .3rem 0 #cdd2d6;
 }
 
@@ -40,4 +41,23 @@
     font-family: 'Roboto Flex', sans-serif;
     font-weight: bold;
     text-align: center
+}
+
+.header{
+    width:100%;
+    display:flex;
+    justify-content: right;
+    align-items: center;   
+    margin-top: 2px;
+    margin-bottom: .5rem;
+}
+.headerContainer{
+    width:30%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap: .2rem;
+    padding: 0 .5rem;
+    border-radius: .3rem;
+    background-color: #8CC6EE
 }

@@ -1,26 +1,19 @@
 import React from 'react';
+import Pagination from '@mui/material/Pagination';
 import styles from './index.module.css';
 
-const Paginado = ({countries, paginado, countriesPerPage}) => {
+const Paginado = ({characters, paginado, charactersPerPage, currentPage}) => {
 
-    const pageNumber = [];
+    const pageNumbers = [];
     
-    for( let i = 1; i <= Math.ceil(countries / countriesPerPage); i++ ){
-        pageNumber.push(i)
+    for( let i = 1; i <= Math.ceil(characters / charactersPerPage); i++ ){
+        pageNumbers.push(i)
     }
     
     return(
         <nav className={styles.nav}>
-            <ul className={styles.lista}>
-                {
-                    pageNumber &&
-                    pageNumber.map( (number, i) => (
-                        <li className={styles.li} key={i}>
-                            <a onClick={()=> paginado(number)}>{number}</a>
-                        </li>
-                    ))
-                }
-            </ul>
+            <Pagination defaultValue={currentPage}  
+                count={pageNumbers.length} onChange={(e, v) => paginado(v)} color="primary"  shape="rounded" />
         </nav>
     )
 }

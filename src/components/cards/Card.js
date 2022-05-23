@@ -12,8 +12,11 @@ export default function Card( {image, name, species, id}) {
     return (
 
         <div className={styles.containerCard}>
-            <header>
-                <h5>FAV</h5>
+            <header className={styles.header}>
+                <div className={styles.headerContainer}> 
+                    <input style={{cursor: 'pointer'}} type='checkbox' />
+                    <h5 style={{margin:'10px'}} >FAV</h5>
+                </div>
             </header>
             <figure>
                 <img className={styles.image} width="150" height="150" src={ image } alt={ name } />

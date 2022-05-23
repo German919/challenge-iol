@@ -35,8 +35,11 @@ export default function Details() {
             {
                 details &&
                 <div className={styles.containerCard}>
-                    <header>
-                        <h4>FAV</h4>
+                    <header className={styles.header}>
+                        <div className={styles.headerContainer}> 
+                            <input style={{cursor: 'pointer'}} type='checkbox' />
+                            <h5 style={{margin:'10px'}} >FAV</h5>
+                        </div>
                     </header>
                     <div className={styles.containerStatus} > 
                         <div className= { details.status === 'Alive' ? styles.Alive 

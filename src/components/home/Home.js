@@ -51,9 +51,10 @@ export default function Home() {
       
       <div>
         <Paginado 
-              countries={characters && characters.length} 
+              characters={characters && characters.length} 
               paginado={paginado} 
-              countriesPerPage={charactersPerPage}
+              charactersPerPage={charactersPerPage}
+              currentPage = { currentPage }
         />
       </div>
 
