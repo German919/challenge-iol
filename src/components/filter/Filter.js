@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 import { getCharacters } from '../../services/axios'
+import { useNavigate } from "react-router-dom";
 import styles from './filter.module.css'
 
 export default function Filter( { characters, setCharacter }) {
 
     const [ search, setSearch ] = useState()
     const [ error, setError ] = useState()
+
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setSearch(e.target.value)
@@ -25,6 +28,12 @@ export default function Filter( { characters, setCharacter }) {
         setCharacter( arr )
 
     }
+
+    const handleFavorites = () => {
+        navigate('/favorites')
+
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault()
         if(!search) {
@@ -44,6 +53,8 @@ export default function Filter( { characters, setCharacter }) {
     return (
 
         <div className= { styles.container }>
+            
+            <button onClick= { handleRefresh } className={ styles.button } >Refesh page</button>
             <form onSubmit= { handleSubmit }>
                 <input 
                     className={styles.input} 
@@ -55,7 +66,8 @@ export default function Filter( { characters, setCharacter }) {
                     error !== undefined ? <p style={{color:'white', margin:'0'}}>{error}</p> : ""
                 }
             </form>
-            <button onClick= { handleRefresh } className={ styles.button } >Refesh page</button>
+            
+            <button onClick= { handleFavorites } className={ styles.button } >Favorites</button>
         </div>
   )
 

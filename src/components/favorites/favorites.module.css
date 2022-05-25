@@ -1,0 +1,46 @@
+.nav{
+    display: flex;
+    justify-content: center; 
+    margin:1rem 0
+  }
+
+  .gridCharacter{
+    width:95%;
+    margin: 2rem 0;
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(230px, 1fr));
+    gap: 1rem
+  }
+
+  .flexCharacter{
+    margin: 2rem 0;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    gap: 1rem
+  }
+
+  .containerBtn{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+
+.button{
+    padding: .5rem;
+    border-radius: .3rem;
+    border: none;
+    font-weight: bold;
+    font-size: 1rem;
+    background-color: #d7eaf7;
+    color:#03162E;
+    cursor: pointer;
+    padding: 0.5rem 2rem
+}
+.button:hover {
+    background-color: #c5d5e0;
+}
+.button:active{
+    transform: scale(.99)
+}
