@@ -5,6 +5,8 @@ import Paginado from '../paginado';
 import { getCharacters } from '../../services/axios';
 import styles from './home.module.css';
 import Filter from '../filter/Filter';
+import { useContext } from 'react'
+import { UserContext } from '../../context/user/UserContext'
 
 export default function Home() {
 
@@ -22,6 +24,8 @@ export default function Home() {
       setCurrentPage(page)
   }
 
+  const { fav } = useContext( UserContext )
+  
   useEffect(() =>{
 
     const getAll = async () => {
@@ -44,7 +48,7 @@ export default function Home() {
   return (
     <>
        <nav className= {styles.nav} >
-        <img width='400' src={logo} alt='logo' />
+        <img className= { styles.img }  src={logo} alt='logo' />
       </nav>
       
       <Filter characters = { characters } setCharacter = { setCharacter }/>
@@ -60,14 +64,31 @@ export default function Home() {
 
       <div className={ currentCharacters.length < 5 ? styles.flexCharacter : styles.gridCharacter}>
         {
-          currentCharacters.map( character => (
-            <Card 
-                key = { character.id } 
-                id = { character.id }
-                image = { character.image } 
-                name = { character.name } 
-                species = { character.species } />
-          ))
+          currentCharacters.map( character => { 
+            const res = fav.find( f => f.id === character.id)
+            if(res || fav.id === character.id){
+              return (
+                <Card 
+                    key = { character.id } 
+                    id = { character.id }
+                    image = { character.image } 
+                    name = { character.name } 
+                    species = { character.species } 
+                    fav = 'true'
+                    />
+                )
+              }else {
+                return (
+                  <Card 
+                      key = { character.id } 
+                      id = { character.id }
+                      image = { character.image } 
+                      name = { character.name } 
+                      species = { character.species } />
+                  )
+              }
+            }
+          )
         }
       </div>
 

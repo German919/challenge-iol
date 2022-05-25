@@ -4,7 +4,7 @@ import { useContext } from 'react'
 import { UserContext } from '../../context/user/UserContext'
 import styles from './card.module.css'
 
-export default function Card( {image, name, species, id}) {
+export default function Card( {image, name, species, id, fav}) {
 
     const navigate = useNavigate();
 
@@ -21,12 +21,13 @@ export default function Card( {image, name, species, id}) {
     const handleDetails = (id) => {
         navigate(`/details/${id}`)
     }
+    
     return (
 
         <div className={styles.containerCard}>
             <header className={styles.header}>
                 <div className={styles.headerContainer}> 
-                    <input style={{cursor: 'pointer'}} type='checkbox' onClick= { handleFav } />
+                    <input style={{cursor: 'pointer'}} value={fav} defaultChecked={fav} type='checkbox' onClick= { handleFav } />
                     <h5 style={{margin:'10px 5px'}} >FAV</h5>
                 </div>
             </header>

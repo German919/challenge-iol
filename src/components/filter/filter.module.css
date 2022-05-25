@@ -5,11 +5,17 @@
     gap:1.5rem
 }
 .input{
+    position: relative;
     padding: .7rem;
     border-radius: .3rem;
     border:none;
     margin: 1rem 0;
     width: 350px
+}
+.error{
+    position: absolute;
+    color:white;
+    margin:-10px 0 0 0 
 }
 .input:focus{
     outline: none;
@@ -37,5 +43,10 @@
         display: flex;
         flex-direction: column;
         justify-content:center;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .input{
+        width: 300px
     }
 }

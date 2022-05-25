@@ -63,7 +63,7 @@ export default function Filter( { characters, setCharacter }) {
                     onChange= { handleChange }
                     />
                 {
-                    error !== undefined ? <p style={{color:'white', margin:'0'}}>{error}</p> : ""
+                    error !== undefined ? <p className={ styles.error }>{error}</p> : ""
                 }
             </form>
             
